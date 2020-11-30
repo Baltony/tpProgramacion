@@ -183,26 +183,32 @@ verCarrito.onclick = function() {
 					let liCantidad = d.createElement('li');
 					let liTotal = d.createElement('li');
 					let divOrden = d.createElement('div');
-					liTotal.style.fontWeight = '700';
+
+					liTotal.style.fontWeight = '650';
 					liNombre.innerHTML = item.nombre;
 					liPrecio.innerHTML = `Precio individual: $${item.precio}`;
 					liCantidad.innerHTML = `Cantidad: ${productoCantidad}`;
-					liTotal.innerHTML = `Total: $${productoCantidad * item.precio}`;
+					liTotal.innerHTML = `Sub Total: $${productoCantidad * item.precio}`;
 					ul.appendChild(divOrden);
 					divOrden.appendChild(liNombre);
 					divOrden.appendChild(liPrecio);
 					divOrden.appendChild(liCantidad);
 					divOrden.appendChild(liTotal);
-				}; 
-				let a = d.createElement('a');
-				a.href = '#';
-				a.innerHTML = 'CERRAR';
-				a.onclick = function () {
-					d.querySelector('.modal').remove();
-					return false;
 				}
-				div.appendChild(a);
 			}
 		}
 	}
+	let p = d.createElement('p');
+	p.innerHTML = `Total: $${carrito.total}`;
+	p.style.fontWeight = '800';
+	p.style.marginTop = '20px';
+	div.appendChild(p);
+	let a = d.createElement('a');
+	a.href = '#';
+	a.innerHTML = 'CERRAR';
+	a.onclick = function () {
+		d.querySelector('.modal').remove();
+		return false;
+	}
+	div.appendChild(a);
 };
